@@ -35,6 +35,18 @@
         .pricing-card:hover {
             transform: scale(1.02);
         }
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -56,16 +68,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section min-h-screen pt-20 flex items-center">
-        <div class="container mx-auto px-6 py-16">
-            <div class="w-full md:w-1/2 lg:w-2/5">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">Compassionate Care for Your Entire Family</h1>
-                <p class="text-lg text-white-600 mb-8">Dedicated to providing personalized healthcare for generations. I believe in building lasting relationships with my patients.</p>
-                <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition shadow-md inline-block whitespace-nowrap">Book an Appointment</a>
+    <section class="hero-section min-h-screen flex items-center pt-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Precision. Compassion. Surgical Excellence You Can Trust.</h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-8">Private surgical care with over 15 years of life-changing outcomes.</p>
+                <a href="#contact">
+                <button class="bg-primary text-white px-8 py-3 !rounded-button text-lg hover:bg-blue-600 transition-colors shadow-lg whitespace-nowrap">Book a Consultation</button></a>
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
@@ -122,198 +134,208 @@
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive healthcare services tailored to meet the needs of your entire family, from routine checkups to specialized care.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Specialized Surgical Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Offering a comprehensive range of surgical procedures with a focus on minimally invasive techniques and optimal recovery outcomes.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary mb-6">
-                        <i class="ri-stethoscope-line ri-xl"></i>
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                        <i class="ri-surgical-mask-line text-primary ri-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">General Checkups</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive physical examinations to assess your overall health and prevent potential issues.</p>
-                    <p class="text-sm font-medium text-primary">Recognized for thorough preventive screenings that have helped over 500 patients identify health risks early.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Minimally Invasive Surgery</h3>
+                    <p class="text-gray-600 mb-4">Advanced laparoscopic procedures with smaller incisions, reduced pain, and faster recovery times.</p>
+                    <p class="text-primary font-semibold">Over 200 successful procedures</p>
                 </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary mb-6">
-                        <i class="ri-bear-smile-line ri-xl"></i>
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                        <i class="ri-heart-2-line text-primary ri-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Pediatric Care</h3>
-                    <p class="text-gray-600 mb-4">Specialized care for children of all ages, from newborns to adolescents, ensuring healthy development.</p>
-                    <p class="text-sm font-medium text-primary">Voted favorite pediatrician by local parents three years in a row for gentle and effective child healthcare.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Reconstructive Surgery</h3>
+                    <p class="text-gray-600 mb-4">Restoring form and function through precise reconstructive techniques following trauma or disease.</p>
+                    <p class="text-primary font-semibold">Over 45 life-changing outcomes</p>
                 </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary mb-6">
-                        <i class="ri-women-line ri-xl"></i>
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                        <i class="ri-virus-line text-primary ri-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Women's Health</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive women's health services including preventive care, screenings, and reproductive health.</p>
-                    <p class="text-sm font-medium text-primary">Specialized in women's health issues with advanced training in hormonal and reproductive health management.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Oncological Surgery</h3>
+                    <p class="text-gray-600 mb-4">Precise tumor removal with a focus on preserving healthy tissue and improving quality of life.</p>
+                    <p class="text-primary font-semibold">Over 100 cancer patients treated</p>
                 </div>
-                <div class="service-card bg-white p-8 rounded-lg shadow-md transition duration-300 ease-in-out">
-                    <div class="w-14 h-14 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary mb-6">
-                        <i class="ri-heart-pulse-line ri-xl"></i>
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition-all duration-300">
+                    <div class="w-14 h-14 flex items-center justify-center bg-blue-100 rounded-full mb-6">
+                        <i class="ri-health-book-line text-primary ri-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Chronic Condition Management</h3>
-                    <p class="text-gray-600 mb-4">Personalized care plans for managing chronic conditions like diabetes, hypertension, and asthma.</p>
-                    <p class="text-sm font-medium text-primary">Recognized for early diabetes detection and management in over 200 patients, preventing serious complications.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Hernia Repair</h3>
+                    <p class="text-gray-600 mb-4">Specialized techniques for all types of hernias with emphasis on durability and comfort.</p>
+                    <p class="text-primary font-semibold">Over 150 repairs with low recurrence</p>
                 </div>
             </div>
+            
         </div>
     </section>
+
 
     <!-- Pricing Section -->
     <section id="pricing" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Healthcare Plans</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Choose the healthcare plan that best suits your family's needs. All plans include personalized care and attention.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Transparent Pricing Options</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the care package that best suits your needs with our all-inclusive pricing structure.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="pricing-card bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Standard</h3>
-                        <div class="flex items-baseline mb-4">
-                            <span class="text-3xl font-bold text-gray-800">$120</span>
-                            <span class="text-gray-500 ml-2">/ visit</span>
-                        </div>
-                        <p class="text-gray-600 text-sm">Basic consultations and general checkups for individuals.</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
                     <div class="p-6">
-                        <ul class="space-y-3">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Standard Care</h3>
+                        <p class="text-gray-600 mb-6">Essential surgical care with personal attention</p>
+                        <p class="text-3xl font-bold text-gray-900 mb-6">$1,200<span class="text-lg text-gray-500 font-normal"> / procedure</span></p>
+                        <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">General health consultations</span>
+                                <span class="text-gray-600">Pre-operative consultation</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Annual physical examination</span>
+                                <span class="text-gray-600">Standard surgical procedure</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Basic health screenings</span>
+                                <span class="text-gray-600">1 post-operative follow-up</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Prescription refills</span>
+                                <span class="text-gray-600">Basic recovery support</span>
                             </li>
                         </ul>
-                        <button class="mt-8 w-full bg-white border border-primary text-primary hover:bg-primary hover:text-white transition px-6 py-2 rounded-button font-medium whitespace-nowrap">Select Plan</button>
+                        <button class="package-btn w-full bg-white border border-primary text-primary py-3 !rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">Choose Package</button>
                     </div>
                 </div>
-                <div class="pricing-card bg-white border-2 border-primary rounded-lg shadow-lg relative overflow-hidden transform scale-105">
-                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-semibold py-1 px-3">
-                        Most Popular
-                    </div>
-                    <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Plus</h3>
-                        <div class="flex items-baseline mb-4">
-                            <span class="text-3xl font-bold text-gray-800">$220</span>
-                            <span class="text-gray-500 ml-2">/ month</span>
-                        </div>
-                        <p class="text-gray-600 text-sm">Comprehensive care including chronic condition management and urgent visits.</p>
-                    </div>
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden border-2 border-primary relative transform scale-105">
+                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-semibold">Most Popular</div>
                     <div class="p-6">
-                        <ul class="space-y-3">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Care</h3>
+                        <p class="text-gray-600 mb-6">Enhanced surgical experience with extended support</p>
+                        <p class="text-3xl font-bold text-gray-900 mb-6">$25,00<span class="text-lg text-gray-500 font-normal"> / procedure</span></p>
+                        <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">All Standard plan features</span>
+                                <span class="text-gray-600">2 pre-operative consultations</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Chronic condition management</span>
+                                <span class="text-gray-600">Advanced surgical techniques</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Priority scheduling for urgent visits</span>
+                                <span class="text-gray-600">3 post-operative follow-ups</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Email consultations</span>
+                                <span class="text-gray-600">Comprehensive recovery plan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Priority scheduling</span>
                             </li>
                         </ul>
-                        <button class="mt-8 w-full bg-primary text-white hover:bg-opacity-90 transition px-6 py-2 rounded-button font-medium whitespace-nowrap">Select Plan</button>
+                        <button class="package-btn w-full bg-primary text-white py-3 !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">Choose Package</button>
                     </div>
                 </div>
-                <div class="pricing-card bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Premium</h3>
-                        <div class="flex items-baseline mb-4">
-                            <span class="text-3xl font-bold text-gray-800">$450</span>
-                            <span class="text-gray-500 ml-2">/ month</span>
-                        </div>
-                        <p class="text-gray-600 text-sm">24/7 doctor access, extended family coverage, and home visits.</p>
-                    </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
                     <div class="p-6">
-                        <ul class="space-y-3">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Care</h3>
+                        <p class="text-gray-600 mb-6">Luxury surgical experience with concierge service</p>
+                        <p class="text-3xl font-bold text-gray-900 mb-6">$4,000<span class="text-lg text-gray-500 font-normal"> / procedure</span></p>
+                        <ul class="space-y-3 mb-8">
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">All Plus plan features</span>
+                                <span class="text-gray-600">Unlimited consultations</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">24/7 direct doctor access</span>
+                                <span class="text-gray-600">State-of-the-art techniques</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Home visits (within 10 miles)</span>
+                                <span class="text-gray-600">6 months of follow-up care</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2 mt-0.5">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
                                     <i class="ri-check-line"></i>
                                 </div>
-                                <span class="text-gray-600">Extended family coverage (up to 4)</span>
+                                <span class="text-gray-600">Personalized recovery program</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">24/7 direct access to Dr. Mitchell</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Luxury private recovery suite</span>
                             </li>
                         </ul>
-                        <button class="mt-8 w-full bg-white border border-primary text-primary hover:bg-primary hover:text-white transition px-6 py-2 rounded-button font-medium whitespace-nowrap">Select Plan</button>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 max-w-3xl mx-auto bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <div class="flex items-start">
-                    <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
-                        <i class="ri-secure-payment-line ri-lg"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-medium text-gray-800 mb-2">Payment Information</h4>
-                        <p class="text-gray-600 text-sm">We accept payments via secure bank transfers and Zelle. Payment instructions will be provided after booking. All transactions are encrypted and secure.</p>
-                        <div class="flex space-x-4 mt-4">
-                            <div class="w-8 h-8 flex items-center justify-center text-gray-500">
-                                <i class="ri-bank-card-line ri-lg"></i>
-                            </div>
-                        
-                            
-                        </div>
+                        <button class="package-btn w-full bg-white border border-primary text-primary py-3 !rounded-button hover:bg-blue-50 transition-colors whitespace-nowrap">Choose Package</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-close-line ri-lg"></i>
+                </div>
+            </button>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Payment Options</h3>
+            <p class="text-gray-700 mb-6">💳 We accept payment via PayPal, Bitcoin, and Bank Transfers (for larger payments).</p>
+            <a href="#contact"><button class="bg-primary text-white px-3 py-2 !rounded-button text-lg hover:bg-blue-600 transition-colors shadow-lg whitespace-nowrap transition-colors">Contact us</button></a>  
+            <p class="text-gray-700 mb-8">through our hotlines for payment details.</p>
+            <div class="flex justify-center space-x-6">
+                <div class="w-10 h-10 flex items-center justify-center text-blue-600">
+                    <i class="ri-paypal-fill ri-2x"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center text-orange-500">
+                    <i class="ri-bitcoin-fill ri-2x"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-bank-fill ri-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
@@ -485,6 +507,31 @@
             });
         });
     </script>
+    <script id="payment-modal-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const packageButtons = document.querySelectorAll('.package-btn');
+            const paymentModal = document.getElementById('payment-modal');
+            const closeModalButton = document.getElementById('close-modal');
+            
+            packageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paymentModal.style.display = 'flex';
+                });
+            });
+            
+            closeModalButton.addEventListener('click', function() {
+                paymentModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === paymentModal) {
+                    paymentModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 
     <script id="formValidation">
         document.addEventListener('DOMContentLoaded', function() {
